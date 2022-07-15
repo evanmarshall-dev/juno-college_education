@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+  </head>
+  <body>
+    <h1>Functions</h1>
+    <h3>Defining & Calling Functions</h3>
+    <p>
+      Functions can be <strong>defined</strong> as a function declaration or
+      function expression or an arrow function in ES6/ECMAScript 2015:
+    </p>
+    <pre>
+      <code>
+        Example of a function declaration:
+        function helloWorld() {
+          console.log(`Hello There!`)
+        }
+
+        Example of a function expression:
+        const helloWorld = function() {
+          console.log(`Hello There!`)
+        }
+
+        Example of an arrow Function:
+        const helloWorld = () => {
+          console.log(`Hello There!`)
+        }
+      </code>
+    </pre>
+
+    <p>
+      After functions are <strong>defined</strong> they need to be
+      <strong>called</strong> in order to run. The above functions can be called
+      with <em>helloWorld();</em>
+    </p>
+
+    <h3>Parameters</h3>
+    <p>
+      Parameters are variables passed into the function as placeholders for when
+      the function is called when they are then called arguments. Basically
+      parameters are used during the defining of a function and arguments are
+      used when the function is called
+    </p>
+    <pre>
+      <code>
+        Example defining and calling a function with parameters:
+        const nameOfFunction = function(parameter1, parameter2) {
+          return parameter1 + parameter2;
+        }
+
+        nameOfFunction(2, 4);
+        // Value would be 6
+      </code>
+    </pre>
+
+    <h3>Return vs. Console.Log</h3>
+    <p>
+      Console.log prints or logs values to the console whereas Return is used to
+      store a value to be reused.
+    </p>
+
+    <hr />
+
+    <h2>Parameters & Arguments</h2>
+    <h3>Multiple Parameters</h3>
+    <p>
+      There can be an unlimited amount of parameters added to a function and the
+      order at which they are added is important.
+    </p>
+
+    <h3>Protecting Against Missing Arguments</h3>
+    <p>
+      This can be accomplished with an if statement to check when a parameter is
+      undefined however the newer way is with ES6
+      <strong>Default Parameters</strong>
+    </p>
+    <pre>
+      <code>
+        Example of default parameters:
+        const logPet = function(petName, petType = `dog`) {
+          console.log(`${petName} is a ${petType}.`);
+        }
+        logPet(`Snickers`); // Snickers is a dog.
+        logPet(`Coco`, `cat`); // Coco is a cat.
+      </code>
+    </pre>
+
+    <hr />
+
+    <h2>Scope</h2>
+    <p>
+      Variables declared outside of a function are
+      <strong>global</strong> scoped, which means they can be accessed r
+      over-written from anywhere within the code. In contrast, variables
+      declared within the function have a <strong>local</strong> scope and are
+      only available to that function.
+    </p>
+
+    <h3>Nested Scope</h3>
+    <pre>
+      <code>
+        function grandparent() {
+          const name = 'Mabel';
+          // likes is not accessible here
+          // child function is not accessible here
+          function parent() {
+            // name is accessible here
+            // child function is accessible here
+            // likes is not accessible here
+            console.log(likes);
+            function child() {
+              // name is also accessible here
+              const likes = 'bread pudding';
+            }
+          }
+        }
+      </code>
+    </pre>
+  </body>
+</html>

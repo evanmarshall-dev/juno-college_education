@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 1. Add ONE line to the following code that will change the output from: 
+      'Here I go petting Dug again' to: 'Here I go petting Korg again'.
+    */
+
+      let petName = 'Dug'
+      function petAnimal() {
+        let petName = 'Korg' // Added this line. The locally scoped pet name will override the globally scoped.
+        console.log(`Here I go petting ${petName} again`)
+      }
+
+      petAnimal()
+
+      /* 2. Remove ONE word that will make the following print out 'My best friend is Meek': */
+
+      function nameMyBestFriend() {
+        let myBestFriend = 'Korg'
+        {
+          myBestFriend = 'Meek' // Removed the keyword 'let'. This is a re-assignment now as opposed to a declaration
+          // The value of the variable defined outside of this block scope will be updated, and now the log will
+          // print out with the updated name of 'Meek'.
+        }
+        console.log(`My best friend is: ${myBestFriend}`)
+      }
+
+      nameMyBestFriend()
+
+      /* 3. CHALLENGE:
+
+      The following should *not* be changed:
+        1. The ORDER in which the numbers are declared (must remain in the order of 6, 7, 8 from top to bottom).
+        2. The location of the LAST console.log (can not move this console.log earlier).
+        3. The VALUES of the declaration.
+      
+      The following *can* be changed:
+        1. The location of the console.logs that are NOT the last console.log. 
+        2. The way in which the variables are declared. 
+
+      Currently what prints to the console:
+        8
+        7
+        6
+
+      Desired end goal for what prints to the console:
+        6 
+        7 
+        8
+    */
+
+      let a = 6
+
+      function fun() {
+        // Moved this line to the top from below the again() function call
+        console.log(a)
+
+        // Removed the keyword let to ensure that the above 'a' is using the globally scoped 'a', and so the below console.logs are printing based on the re-assignment.
+        a = 7
+
+        function again() {
+          console.log(a)
+          a = 8
+        } // end again
+
+        again()
+      } // end fun
+
+      fun()
+      console.log(a)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Object Practice</title>
+  </head>
+  <body>
+    <script>
+      const spaceship = {
+        year: '2017',
+        owner: 'Canada',
+        seats: '4',
+        avgSpeedKMph: 48000,
+        iss: true,
+        mission: 'observation',
+      }
+
+      // Create a variable called 'locationInSpace' and set it to be an empty string
+      let locationInSpace = ''
+
+      // If the spaceship is at the international space station (iss) then update the variable to say "docked at the International Space Station", if the spaceship is not in the international space station update the variable to say "in transit to the International Space Station".
+      if (spaceship.iss === true) {
+        locationInSpace = 'docked at the International Space Station'
+      } else {
+        locationInSpace = 'in transit to the International Space Station'
+      }
+
+      // Log into the console this sentence using the spaceship object where appropriate `Canada's spaceship, built in 2017, is currently docked at the International Space Station / in transit to the International Space Station.`
+      console.log(
+        `${spaceship.owner}\'s spaceship, built in ${spaceship.year}, is currently ${locationInSpace}.`
+      )
+
+      // Without changing the object literal, create a new property called destination, and set the value to be a planet or moon in our solar system
+      spaceship.destination = 'moon'
+
+      // Our spaceship received an update and now has two stronger rockets.
+      // Update the average speed to be twice as fast
+      spaceship.avgSpeedKMph = spaceship.avgSpeedKMph * 2
+
+      // Create a top speed property. The typical top speed is 30% higher than the average speed
+      spaceship.topSpeedKMph = spaceship.avgSpeedKMph * 1.3
+
+      console.log(spaceship)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Object Exercises</title>
+  </head>
+
+  <body>
+    <script>
+      const farm = {
+        type: 'crop',
+        name: 'Sweet Gardens',
+        hectares: 300,
+        employees: 3,
+        owner: 2,
+        barnCats: 14,
+        location: {
+          province: 'Ontario',
+          city: 'Cambridge',
+          postalCode: 'N1R5S2',
+        },
+        cropRotation: {
+          field1: {
+            crop: 'Winter Wheat',
+            harvest: 'June',
+            lastRotation: '2017',
+          },
+          field2: {
+            crop: 'Corn',
+            harvest: 'September',
+            lastRotation: '2016',
+          },
+          field3: {
+            crop: null,
+            harvest: null,
+            lastRotation: '2018',
+          },
+        },
+      }
+
+      // Level 1:
+      // using the object above console log the following sentence:
+      //`Sweet Gardens is proud to have 300 hectares full of Winter Wheat and Corn this year! Stop by Cambridge, Ontario to visit our 14 barn cats and one of our 3 employees would be glad to help you!`
+      console.log(
+        `${farm.name} is proud to have ${farm.hectares} hectares full of ${farm.cropRotation.field1.crop} and ${farm.cropRotation.field2.crop} this year! Stop by ${farm.location.city}, ${farm.location.province} to visit our ${farm.barnCats} barn cats and one of our ${farm.employees} employees would be glad to help you!`
+      )
+
+      // Level 2:
+      // iterate through the farm object, if the value is a number, then console.log the key and value pairs example: `There are 2 owner(s)`
+      for (let attr in farm) {
+        if (typeof farm[attr] === 'number') {
+          console.log(`There are ${farm[attr]} ${attr}(s)`)
+        }
+      }
+
+      // Level 3:
+      // iterate through the farm object, and if there is a nested object, then iterate through that as well. You should console log each value in all objects
+
+      for (let attr in farm) {
+        if (typeof farm[attr] === 'object') {
+          const nestedObj = farm[attr]
+          for (let prop in nestedObj) {
+            const twiceNested = nestedObj[prop]
+            if (typeof twiceNested === 'object') {
+              console.log(`${prop}`)
+              for (let nestedProp in twiceNested) {
+                console.log(`${nestedProp} = ${twiceNested[nestedProp]}`)
+              }
+            } else {
+              console.log(nestedObj[prop])
+            }
+          }
+        } else {
+          console.log(farm[attr])
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>People ForEach</title>
+  </head>
+  <body>
+    <script>
+      const people = [
+        // start the huge array
+
+        // each item of the array is an object
+        {
+          first: 'Albert',
+          last: 'Einstein',
+          year: 1879,
+        },
+
+        // here is another item
+        {
+          first: 'Isaac',
+          last: 'Newton',
+          year: 1643,
+        },
+
+        // get it?!
+        {
+          first: 'Galileo',
+          last: 'Galilei',
+          year: 1564,
+        },
+        {
+          first: 'Marie',
+          last: 'Curie',
+          year: 1867,
+        },
+        {
+          first: 'Johannes',
+          last: 'Kepler',
+          year: 1571,
+        },
+        {
+          first: 'Nicolaus',
+          last: 'Copernicus',
+          year: 1473,
+        },
+        {
+          first: 'Max',
+          last: 'Planck',
+          year: 1858,
+        },
+      ]
+
+      // 1. forEach(): Now loop over each one and create a sentence that says
+      // "Albert Einstein was born 138 years ago in 1879"
+      people.forEach((person) => {
+        console.log(
+          `${person.first} ${person.last} was born ${
+            2017 - person.year
+          } years go in ${person.year}`
+        )
+      })
+
+      // 2. map() : Create an array of names and ages from the above `people` variables
+      const namesAndAge = people.map((person) => {
+        return `${person.first} ${person.last} is ${2017 - person.year}`
+      })
+      console.log(namesAndAge)
+      // the end array should look like:
+      // ["Albert Einstein is 137 years old", "Isaac Newton is 373 years old", "Galileo Galilei is 452 years old", "Marie Curie is 149 years old", "Johannes Kepler is 445 years old", "Nicolaus Copernicus is 543 years old", "Max Planck is 158 years old"]
+
+      // 3. filter() : Create another array of people who are less than 200 years old
+      const youngOnes = people.filter((person) => {
+        return 2017 - person.year <= 200
+      })
+
+      console.log(youngOnes)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Classes</title>
+  </head>
+  <body>
+    <script>
+      class Character {
+        constructor(locationX, locationY) {
+          this.equipment = []
+          this.health = 100
+          this.location = {
+            x: locationX,
+            y: locationY,
+          }
+        }
+        walk(numOfMiles) {
+          console.log(`I'm walking ${numOfMiles} miles`)
+        }
+        attack(attackPoints) {
+          console.log(`I am attacking with a strong attack of ${attackPoints}`)
+        }
+      }
+      // 1. Create a new player (which is an instance of the Character class) that starts at position (5,5)
+      // We are able to pass arguments in for our instantiation here as we have defined parameters on our constructor
+      const player = new Character(5, 5)
+
+      // We use set interval to automatically run the code in the callback function every 2 seconds
+      setInterval(() => {
+        // 2. Use Math.random() to generate a newX and newY every 2 seconds
+        // 20 and 18 are arbitrarily chosen values to give a range for our random number generation. Typically, in a real game, these would represent the edges of our game board / open world
+        const randomX = Math.floor(Math.random() * 20)
+        const randomY = Math.floor(Math.random() * 18)
+        // 3. Instantiate a new character/enemy AT that random location
+        // randomX and randomY will generate a new random number each time this code runs, which happens every 2 seconds
+        const enemy = new Character(randomX, randomY)
+        // 4. Print out the coordinates of each enemy (AKA where the enemy is located)
+        console.log(`The X location of the enemy is ${enemy.location.x}`)
+        console.log(`The Y location of the enemy is ${enemy.location.y}`)
+      }, 2000)
+
+      // 5. Create a new enemy class (called PotatoMonster) that extends from the Character class and has a method 'throwPotatoes'
+      class PotatoMonster extends Character {
+        // The constructor is still used as the area to define parameters that match the arguments passed in the instantiation
+        constructor(locationX, locationY) {
+          // super() is referencing our parent object, and therefore, the arguments passed here will go to the parameters in the parent constructor
+          // ** This is the big trick to the challenge problem of step 6 **
+          super(locationX, locationY)
+        }
+        // We can define a custom method here that the PotatoMonster will have access to that can be called with potatoMonster.throwPotatoes(5)
+        throwPotatoes(numOfPotatoesToThrow) {
+          console.log(`I am throwing ${numOfPotatoesToThrow} potatoes!`)
+        }
+      }
+      // 6. CHALLENGE: Customize the location of the PotatoMonster and print out the custom location.
+      const potatoMonster = new PotatoMonster(50, 60)
+      // The location of X and Y here will use the values passed in when instantiating potatoMonster
+      console.log(potatoMonster.location.x)
+      console.log(potatoMonster.location.y)
+      potatoMonster.throwPotatoes(5)
+    </script>
+  </body>
+</html>

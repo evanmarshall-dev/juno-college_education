@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Exercise 1:
+
+      // Create a song object that has the following properties: title, artist, album.
+      // Write a function called printSongDetails that takes the song object as an argument and console logs the following string: "(artist) released (title) on the album (album)"
+
+      const song = {
+        title: 'Shake it Off',
+        artist: 'Taylor Swift',
+        album: '1989',
+      }
+
+      function printSongDetails(song) {
+        const { artist, title, album } = song
+        console.log(`${artist} released ${title} on the album ${album}`)
+      }
+
+      printSongDetails(song)
+
+      // Exercise 2:
+
+      // Create a person object with name and age properties and write a function called birthdayGreeting that takes the person object as an argument and returns the following string when the person turns a year older: "Happy birthday (name)! You are now (new age) years old!". Console.log the string.
+
+      const person = {
+        name: 'Melanie',
+        age: 24,
+      }
+
+      function birthdayGreeting(person) {
+        const { name, age } = person
+        const newAge = age + 1
+        return `Happy birthday ${name}! You are now ${newAge} years old!`
+      }
+
+      console.log(birthdayGreeting(person))
+
+      // Exercise 3:
+
+      // Write a function that takes the `monster` object as an argument returns a swamp monster object. It should have 4 legs and eat people like the `monster` does, but should have a different color. Add a few more properties to describe your swamp monster.
+
+      // Make sure you don't modify the monster object! Console log both objects to make sure.
+
+      const monster = {
+        numberOfLegs: 4,
+        color: 'blue',
+        eatsPeople: true,
+      }
+
+      function getSwampMonster(monster) {
+        const { numberOfLegs, eatsPeople } = monster
+
+        const swampMonster = {
+          numberOfLegs: numberOfLegs,
+          eatsPeople: eatsPeople,
+          color: 'green',
+          canSwim: true,
+          origin: 'Louisiana',
+        }
+
+        return swampMonster
+      }
+
+      const swampMonster = getSwampMonster(monster)
+
+      console.log(monster, swampMonster)
+    </script>
+  </body>
+</html>

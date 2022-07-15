@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arrays</title>
+  </head>
+  <body>
+    <script>
+      var cheese = [
+        'Blue Cheese',
+        'Manchego',
+        'Provolone',
+        'Chedar',
+        'Colby',
+        'Feta',
+        'Goat Cheese',
+        'Gorgonzola',
+        'Romano',
+        'Limburger',
+        'Brie',
+        'Ricota',
+        'Roquefort',
+        'Smoked Gouda',
+      ]
+
+      // First log the entire array
+      console.log(cheese)
+
+      // Log "There are __ Cheeses"
+      console.log('There are ', cheese.length, ' Cheeses')
+      console.log('There are ' + cheese.length + ' Cheeses')
+
+      // figure out what the index of "Limburger" is
+      var e1 = cheese.indexOf('Limburger')
+      console.log(e1)
+
+      // Use the previous variable to log the word "Limburger"
+      var e2 = cheese[e1]
+      console.log(e2)
+
+      // Remove "Smoked Gouda" from the array and log cheese again
+      cheese.pop()
+      console.log(cheese)
+
+      // Remove "Blue Cheese" from the array and log cheese again
+      cheese.shift()
+      console.log(cheese)
+
+      // rearrange the array to be alphabetical and then log cheese again
+      cheese.sort()
+      console.log(cheese)
+
+      // rearrage the array to be reverse alphabetical order and then log cheese again
+      cheese.reverse()
+      console.log(cheese)
+
+      // Add the following cheeses to the end of the array and then log cheese: "Camembert" and "Muenster"
+
+      cheese.push('Camembert')
+      cheese.push('Muenster')
+      console.log(cheese)
+
+      // add "Port de Salut" to the front of the array and the log the array
+      cheese.unshift()
+      console.log(cheese)
+
+      // Create a brand new array with the following types of bread and then log it
+      // Rye, "Whole Wheat", "White"
+
+      var bread = ['Rye', 'Whole Wheat', 'White']
+      console.log(bread)
+
+      // Create a brand new array for selected cheeses from cheeses 3 through 6 and then log it
+      var selectedCheese = cheese.slice(2, 5)
+      console.log(selectedCheese)
+
+      // Create a final new array for grilled cheese that combines the 3 breads and 3 selected cheeses. Then log it.
+      var grilledCheese = bread.concat(selectedCheese)
+      console.log(grilledCheese)
+
+      // Convert your grilled cheese into a stringCheese variable. Seperate each item with a dash. Log it
+      var stringCheese = grilledCheese.join('-')
+      console.log(stringCheese)
+
+      // You received this string, convert it to an array and log the 2nd and 4th items _without_ removing them from the array
+      var items = 'pickles,olvies,spicy beans,clamato,japalenos,bacon'
+
+      var yum = items.split(',')
+      console.log(yum[1])
+      console.log(yum[3])
+    </script>
+  </body>
+</html>

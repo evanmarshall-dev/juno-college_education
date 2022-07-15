@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tip Calc</title>
+  </head>
+  <body>
+    <script>
+      // create a function called tipCalculator that uses three parameters: meal price, Tax Rate, Tip Rate
+      // the function should return a value representing the total bill
+      // have the function default to 13% tax and 15% tip
+      // console.log() a string containing the total bill value
+      const tipCalculator = (price, taxRate = 0.13, tipRate = 0.15) => {
+        return price + price * tipRate + price * taxRate
+      }
+
+      const total = tipCalculator(100)
+      console.log(`Your total bill is $${total}`)
+
+      // BONUS: Make the function return a string formatted $x.xx
+      const mealTotal = tipCalculator(89).toFixed(2)
+      console.log(`Your total bill is $${mealTotal}`)
+    </script>
+  </body>
+</html>
